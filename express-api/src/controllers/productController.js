@@ -1,5 +1,5 @@
 /*WILL USE MOCK DATA WHILE DATABASE IS NOT IMPLEMENTED */
-import Product from "../models/Product";
+import Product from "../models/Product.js";
 
 const products = [
     new Product("57e95887-dc12-4a11-a801-352e658147d1", 'Laptop', 1999.99, 'High-performance laptop for developers'),
