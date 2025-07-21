@@ -1,0 +1,23 @@
+{
+  "name": "express-api",
+  "version": "1.0.0",
+  "description": "Express api for a small product system ",
+  "homepage": "https://github.com/ishidadecol/Product-System#readme",
+  "bugs": {
+    "url": "https://github.com/ishidadecol/Product-System/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishidadecol/Product-System.git"
+  },
+  "license": "ISC",
+  "author": "Daniel Ishida",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
