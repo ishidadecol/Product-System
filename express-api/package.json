@@ -19,7 +19,8 @@
     "dev": "nodemon src/index.js",
     "migration:generate": "npx sequelize-cli migration:generate",
     "migrate": "npx env-cmd -f ../.env sequelize-cli db:migrate --config ./config/config.cjs",
-    "migrate:rollback": "env-cmd npx sequelize-cli db:migrate:undo"
+    "migrate:rollback": "env-cmd npx sequelize-cli db:migrate:undo",
+    "seed" : "npx env-cmd -f ../.env  sequelize-cli db:seed:all --config ./config/config.cjs"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
