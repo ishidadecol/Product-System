@@ -1,14 +1,7 @@
-/*WILL USE MOCK DATA WHILE DATABASE IS NOT IMPLEMENTED */
 import Product from "../models/Product.js";
 import { productSchema, updateProductSchema } from "../schemas/productSchema.js";
 import { mapDbErrorToStatusCode } from "../utils/dbErrorHelper.js";
 
-const products = [
-    new Product("57e95887-dc12-4a11-a801-352e658147d1", 'Laptop', 1999.99, 'High-performance laptop for developers'),
-    new Product("9c5765fc-9504-41e0-a536-7b759da1fe92", 'Smartphone', 899.49, 'Latest model smartphone'),
-    new Product("9cc3ea34-390a-4036-bf49-a27997a4c125", 'Headphones', 129.99, 'Noise-cancelling over-ear headphones'),
-    new Product("23a689c9-999c-43ea-b1e5-c196aae6811a", 'Monitor', 299.00, '27-inch 4K monitor'),
-];
 
 //MARK: GET ALL PRODUCTS
 export const getAllProducts = async (req, res) => {
