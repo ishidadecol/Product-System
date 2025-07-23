@@ -1,5 +1,6 @@
 /*WILL USE MOCK DATA WHILE DATABASE IS NOT IMPLEMENTED */
 import Product from "../models/Product.js";
+import { mapDbErrorToStatusCode } from "../utils/dbErrorHelper.js";
 
 const products = [
     new Product("57e95887-dc12-4a11-a801-352e658147d1", 'Laptop', 1999.99, 'High-performance laptop for developers'),
@@ -8,24 +9,33 @@ const products = [
     new Product("23a689c9-999c-43ea-b1e5-c196aae6811a", 'Monitor', 299.00, '27-inch 4K monitor'),
 ];
 
-//MARK: GET ALL PRODUCTS
-export const getAllProducts = (req, res) => {
-    //TODO: Fetch all products from DB
-    return res.json(products);
+export const getAllProducts = async (req, res) => {
+    try {
+        const products = await Product.findAll();
+        res.json(products);
+    }
+    catch (error) {
+        const statusCode = mapDbErrorToStatusCode(error.code);
+        res.status(statusCode).json({ error: error.message })
+    }
 }
 
 //MARK: GET PRODUCT BY ID
-export const getProductById = (req, res) => {
-    //TODO: Fetch a specific product using its Id
+export const getProductById = async (req, res) => {
     const id = req.params.id;
 
-    const product = products.find(p => p.id === id);
+    try {
+        const product = await Product.findByPk(id); // Busca pelo Product.id
 
-    if (!product) {
-        return res.status(404).json({ error: 'Product not found' });
+        if (!product) {
+            return res.status(404).json({ error: 'Product not found' });
+        }
+
+        res.json(product);
+    } catch (error) {
+        const statusCode = mapDbErrorToStatusCode(error.code); 
+        res.status(statusCode).json({ error: error.message });
     }
-
-    res.json(product)
 }
 
 //MARK: CREATE A PRODUCT
