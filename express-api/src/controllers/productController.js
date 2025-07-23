@@ -86,15 +86,20 @@ export const updateProductById = async (req, res) => {
 }
 
 //MARK: DELETE A PRODUCT
-export const deleteProductById = (res, req) => {
-    //TODO: Deleta aspecific product from db
-    const id = req.params.id;
-    const productIndex = products.findIndex(p => p.id === id);
+export const deleteProductById = async (res, req) => {
+    const { id } = req.params;
 
-    if (productIndex === -1) {
-        return res.status(404).json({ error: 'Product not found' });
+    try {
+        const product = await Product.findByPk(id);
+
+        if (!product) {
+            return res.status(404).json({ error: 'Produto não encontrado' });
+        }
+
+        await product.destroy();
+        return res.status(204).send();
+    } catch (error) {
+        const statusCode = mapDbErrorToStatusCode(error.code);
+        res.status(statusCode).json({ error: error.message });
     }
-
-    products.splice(productIndex, 1);
-    res.status(204).send();
 }
