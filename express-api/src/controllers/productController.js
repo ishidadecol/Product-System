@@ -79,7 +79,7 @@ export const updateProductById = async (req, res) => {
 }
 
 //MARK: DELETE A PRODUCT
-export const deleteProductById = async (res, req) => {
+export const deleteProductById = async (req, res) => {
     const { id } = req.params;
 
     try {
