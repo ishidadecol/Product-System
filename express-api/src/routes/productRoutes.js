@@ -1,16 +1,14 @@
 import express from 'express';
-import { authenticateToken } from './middleware/authMiddleware.js';
-import * as productController from './controllers/productController.js';
+import authMiddleware from '../middlewares/authMiddleware.js';
+import * as productController from '../controllers/productController.js';
 
 const router = express.Router();
 
-
-
 // Protected Routes
-router.get('/products', authenticateToken, productController.getAllProducts);
-router.get('/products/:id', authenticateToken, productController.getProductById);
-router.post('/products', authenticateToken, productController.createProduct);
-router.put('/products/:id', authenticateToken, productController.updateProductById);
-router.delete('/products/:id', authenticateToken, productController.deleteProductById);
+router.get('/products', authMiddleware, productController.getAllProducts);
+router.get('/products/:id', authMiddleware, productController.getProductById);
+router.post('/products', authMiddleware, productController.createProduct);
+router.put('/products/:id', authMiddleware, productController.updateProductById);
+router.delete('/products/:id', authMiddleware, productController.deleteProductById);
 
 export default router;

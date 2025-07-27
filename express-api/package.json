@@ -20,10 +20,11 @@
     "migration:generate": "npx sequelize-cli migration:generate",
     "migrate": "npx env-cmd -f ../.env sequelize-cli db:migrate --config ./config/config.cjs",
     "migrate:rollback": "env-cmd npx sequelize-cli db:migrate:undo",
-    "seed" : "npx env-cmd -f ../.env  sequelize-cli db:seed:all --config ./config/config.cjs"
+    "seed": "npx env-cmd -f ../.env  sequelize-cli db:seed:all --config ./config/config.cjs"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
     "env-cmd": "^10.1.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",

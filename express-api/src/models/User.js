@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import bcrypt from "bcrypt";
-import sequelize from "../config/db.js";
+import {sequelize} from "../database.js";
 
 class User extends Model { }
 
@@ -30,12 +30,6 @@ User.init(
         timestamps: false
     }
 )
-
-const User = sequelize.define("User", {
-
-});
-
-
 
 // Hash password before saving
 User.beforeCreate(async (user) => {
