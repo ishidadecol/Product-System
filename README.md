@@ -11,7 +11,7 @@ Antes de começar, certifique-se de ter o seguinte instalado:
 
 ---
 
-## 1️⃣ Clonar o Projeto
+## Clonar o Projeto
 
 Abra o terminal e execute o comando abaixo para clonar o projeto:
 
@@ -20,7 +20,7 @@ git clone https://github.com/ishidadecol/Product-System.git
 ```
 Isso fará o download dos arquivos do projeto para o seu computador.
 
-## 2️⃣ Configurar Variáveis de Ambiente
+## Configurar Variáveis de Ambiente
 Navegue até a pasta da API Express:
 
 ```bash
@@ -35,7 +35,7 @@ cp .env.example .env
 Abra o arquivo .env no seu editor de código (ex: VSCode) e verifique os valores.
 Você pode deixar a maioria como está, se for usar o Docker.
 
-## 3️⃣ Instalar Dependências do Backend
+## Instalar Dependências do Backend
 Ainda dentro da pasta express-api, execute:
 
 ```bash
@@ -44,7 +44,7 @@ npm install
 
 Isso instalará todas as dependências necessárias para o backend.
 
-## 4️⃣ Rodar a Aplicação com Docker (Recomendado)
+## Rodar a Aplicação com Docker (Recomendado)
 Essa é a forma mais fácil de rodar o app.
 O Docker vai configurar automaticamente o banco de dados MySQL e conectar tudo para você.
 
@@ -57,21 +57,21 @@ Aguarde até que todos os serviços estejam rodando.
 
 📝 Se você não for usar o Docker, será necessário configurar um banco de dados MySQL manualmente e atualizar o seu arquivo .env de acordo.
 
-## 5️⃣ Rodar as Migrações
+## Rodar as Migrações
 Este passo cria as tabelas necessárias no banco de dados:
 
 ```bash
 npm run migrate
 ```
 
-## 6️⃣ Rodar o Seeder
+## Rodar o Seeder
 Este comando irá inserir alguns dados de demonstração, incluindo 5 produtos e 1 usuário administrador para login:
 
 ```bash
 npm run seed
 ```
 
-## 7️⃣ Rodar o Frontend (Aplicação Next.js)
+## Rodar o Frontend (Aplicação Next.js)
 Agora vamos iniciar o frontend.
 
 Primeiro, vá até a pasta do frontend:
