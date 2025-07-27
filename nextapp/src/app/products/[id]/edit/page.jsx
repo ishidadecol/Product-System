@@ -4,6 +4,8 @@ import { ProtectedRoute } from "@/components/protected-route"
 import { productApi } from "@/lib/api"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
+import { Loader2 } from "lucide-react"
+import { ProductForm } from "@/components/product-form"
 
 export default function EditProductPage() {
     const params = useParams()
