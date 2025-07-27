@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useAuth } from "@/app/contexts/authContext"
+import { useAuth } from "@/app/context/authContext"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -37,6 +37,8 @@ export default function LoginPage() {
       }
     }
   }
+  
+  //TODO: CHECK IF HAS TOKEN SAVED AND REDIRECT IF DO
 
   const handleChange = (e) => {
     const { name, value } = e.target

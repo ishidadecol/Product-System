@@ -8,7 +8,6 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
 const AuthContext = createContext(undefined)
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -21,7 +20,6 @@ export function AuthProvider({ children }) {
 
     if (storedToken && storedUser) {
       setToken(storedToken)
-      setUser(JSON.parse(storedUser))
     }
     setIsLoading(false)
   }, [])
@@ -48,10 +46,10 @@ export function AuthProvider({ children }) {
       const { token: jwtToken, user: userData } = data
 
       setToken(jwtToken)
-      setUser(userData)
+      
 
       localStorage.setItem("jwt_token", jwtToken)
-      localStorage.setItem("user", JSON.stringify(userData))
+      
 
       router.push("/products")
     } catch (err) {
@@ -63,17 +61,14 @@ export function AuthProvider({ children }) {
   }
 
   const logout = () => {
-    setUser(null)
     setToken(null)
     localStorage.removeItem("jwt_token")
-    localStorage.removeItem("user")
     router.push("/login")
   }
 
   return (
     <AuthContext.Provider
       value={{
-        user,
         token,
         login,
         logout,
