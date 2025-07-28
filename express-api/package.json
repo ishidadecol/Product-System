@@ -12,15 +12,13 @@
   },
   "license": "ISC",
   "author": "Daniel Ishida",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js",
     "migration:generate": "npx sequelize-cli migration:generate",
-    "migrate": "npx env-cmd -f ../.env sequelize-cli db:migrate --config ./config/config.cjs",
-    "migrate:rollback": "env-cmd npx sequelize-cli db:migrate:undo",
-    "seed": "npx env-cmd -f ../.env  sequelize-cli db:seed:all --config ./config/config.cjs"
+    "migrate": "npx sequelize-cli db:migrate --config ./src/config/config.cjs --migrations-path src/migrations --models-path src/models",
+    "seed": "npx sequelize-cli db:seed:all --config ./src/config/config.cjs --seeders-path src/seeders"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
